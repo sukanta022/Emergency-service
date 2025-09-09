@@ -2,9 +2,8 @@ function setValue(id,text){
     document.getElementById(id).innerText = text;
 }
 
+const historyContainer = document.getElementById("history-container");
 function addCallHistory(callNo, time, callWhere){
-    const historyContainer = document.getElementById("history-container");
-    
     const div = document.createElement("div");
             div.innerHTML = `
                 <div class="h-auto p-2 flex justify-between items-center mb-3 bg-gray-100 shadow-md">
@@ -60,4 +59,9 @@ for(let call of calls){
         } 
     });
 }
+
+//history clear
+document.getElementById("clear-btn").addEventListener("click", function(){
+    document.getElementById("history-container").innerHTML = "";
+});
 
