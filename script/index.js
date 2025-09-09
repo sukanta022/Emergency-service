@@ -65,3 +65,14 @@ document.getElementById("clear-btn").addEventListener("click", function(){
     document.getElementById("history-container").innerHTML = "";
 });
 
+
+//copy number
+const copyBtns = document.getElementsByClassName("copy-btn");
+for(let copyBtn of copyBtns){
+    copyBtn.addEventListener("click", function(){
+        textCopy = copyBtn.parentNode.parentNode.children[2].children[0].innerText;
+        navigator.clipboard.writeText(textCopy);
+        alert("number copied: "+ textCopy);
+    });
+}
+
