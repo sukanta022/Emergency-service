@@ -2,6 +2,23 @@ function setValue(id,text){
     document.getElementById(id).innerText = text;
 }
 
+function addCallHistory(callNo, time, callWhere){
+    const historyContainer = document.getElementById("history-container");
+    
+    const div = document.createElement("div");
+            div.innerHTML = `
+                <div class="h-auto p-2 flex justify-between items-center mb-3 bg-gray-100 shadow-md">
+                    <div class="space-y-1 w-55">
+                        <p class="text-[18px] font-semibold">${callWhere}</p>
+                        <p class="text-gray-500">${callNo}</p>
+                    </div>
+                    <p class="text-[17px] text-gray-800 block">${time}</p>
+                </div>
+            `
+    historyContainer.appendChild(div);
+}
+
+
 //heart count
 totalHeart =  parseInt(document.getElementById("heartCount").innerText);
 const hearts = document.getElementsByClassName("heart");
@@ -22,22 +39,25 @@ for(let heart of hearts){
     });
 }
 
-//calling 
+
 totalCoin = parseInt(document.getElementById("coin").innerText);
 const calls = document.getElementsByClassName("call");
 for(let call of calls){
+    
     call.addEventListener("click", function(){
-
         if(totalCoin>0){
             totalCoin -= 20;
             setValue("coin", totalCoin);
             callWhere = call.parentNode.parentNode.children[1].children[0].innerText;
             callNo = call.parentNode.parentNode.children[2].children[0].innerText;
             alertMessage = "📞 Calling " + callWhere + " " + callNo + ".....";
-            alert(alertMessage);
+            time = new Date().toLocaleTimeString();
+            addCallHistory(callNo, time, callWhere);
+            alert(alertMessage);   
         }
         else{
             alert("❌ You do not have enough coins. Minimum of 20 coins is required for calling.");
         } 
     });
 }
+
