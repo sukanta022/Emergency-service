@@ -68,10 +68,13 @@ document.getElementById("clear-btn").addEventListener("click", function(){
 
 //copy number
 const copyBtns = document.getElementsByClassName("copy-btn");
+copyCount = parseInt(document.getElementById("copyTotal").innerText);
 for(let copyBtn of copyBtns){
     copyBtn.addEventListener("click", function(){
         textCopy = copyBtn.parentNode.parentNode.children[2].children[0].innerText;
         navigator.clipboard.writeText(textCopy);
+        copyCount += 1;
+        setValue("copyTotal", copyCount);
         alert("number copied: "+ textCopy);
     });
 }
