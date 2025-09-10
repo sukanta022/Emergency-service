@@ -6,7 +6,7 @@
 <br> <br>
 <b>2. How do you create and insert a new element into the DOM?<br>
 Ans:</b> To create a new element in the DOM and insert it into the DOM, there are a few steps must go through. First, create the element with <i>document.createElement()</i>. Then, set the content of the element using innerText or innerHTML. Finally,insert it into the page using <i>appendChild()</i>.
-For example:
+For example:<br>
 <i>
             let div = document.createElement("div");<br>
             div.innerText = "Hello";<br>
@@ -21,7 +21,7 @@ Ans:</b> Event Delegation means, an event listener used to one parent element in
 It is useful because it uses one event listener instead of many & in future if need to add new elements it can handle it easily.
 <br><br>
 <b>5. What is the difference between <i>preventDefault()</i> and <i>stopPropagation()</i> methods?<br>
-Ans: The difference between <i>preventDefault()</i> and <i>stopPropagation()</i>  is <i>preventDefault()</i> work for stopping default browser behaviour and <i>stopPropagation()</i> work for stop event bubbling.
+Ans:</b> The difference between <i>preventDefault()</i> and <i>stopPropagation()</i>  is <i>preventDefault()</i> work for stopping default browser behaviour and <i>stopPropagation()</i> work for stop event bubbling.
 
 
 
